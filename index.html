@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StyleKart — Fashion Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="style.css" /> -->
+</head>
+<body>
+  <div class="announcement">BIG STYLE DAYS · Up to 60% off on selected styles <span>Shop now →</span></div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="StyleKart home"><span class="brand-mark">S</span><span>stylekart</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#products" data-category="Men">MEN</a>
+      <a href="#products" data-category="Women">WOMEN</a>
+      <a href="#products" data-category="Footwear">FOOTWEAR</a>
+      <a href="#products" data-category="Accessories">ACCESSORIES</a>
+      <a href="#products" class="sale-link" data-category="Sale">SALE</a>
+    </nav>
+    <label class="search-box">
+      <span aria-hidden="true">⌕</span>
+      <input id="searchInput" type="search" placeholder="Search for products, brands and more" />
+      <kbd>⌘ K</kbd>
+    </label>
+    <div class="header-actions">
+      <button class="icon-action" id="profileBtn" aria-label="Profile"><span>♙</span><small>Profile</small></button>
+      <button class="icon-action" id="wishlistBtn" aria-label="Wishlist"><span>♡</span><small>Wishlist</small><b id="wishlistCount" class="count-badge">0</b></button>
+      <button class="icon-action bag-action" id="cartBtn" aria-label="Shopping bag"><span>▱</span><small>Bag</small><b id="cartCount" class="count-badge">0</b></button>
+      <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> THE NEW SEASON EDIT</p>
+        <h1>Make room<br>for <em>more you.</em></h1>
+        <p class="hero-description">Fresh fits, everyday icons and little things that make a big difference.</p>
+        <a class="primary-btn" href="#products">Explore the collection <span>↗</span></a>
+        <div class="hero-footnote"><div class="avatar-stack"><i>J</i><i>M</i><i>A</i></div><span><strong>12k+</strong> people found their fit this week</span></div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-sticker">NEW<br>DROP <span>✳</span></div>
+        <div class="hero-image hero-image-one"></div>
+        <div class="hero-image hero-image-two"></div>
+        <div class="hero-caption"><span>01 / 03</span><span>Everyday, elevated.</span><span>↗</span></div>
+      </div>
+    </section>
+
+    <section class="benefit-strip">
+      <div><span class="benefit-icon">✦</span><p><strong>Curated for you</strong><small>Styles worth saving</small></p></div>
+      <div><span class="benefit-icon">↗</span><p><strong>Easy returns</strong><small>30-day return window</small></p></div>
+      <div><span class="benefit-icon">♡</span><p><strong>Good stuff, fair prices</strong><small>More style for less</small></p></div>
+      <div><span class="benefit-icon">⌁</span><p><strong>Fast delivery</strong><small>At your doorstep</small></p></div>
+    </section>
+
+    <section class="category-section section-wrap">
+      <div class="section-heading">
+        <div><p class="eyebrow">YOUR NEXT FAVOURITE</p><h2>Shop by mood<span>.</span></h2></div>
+        <a href="#products" class="text-link">View everything ↗</a>
+      </div>
+      <div class="category-grid">
+        <button class="category-card category-men" data-category="Men"><span>01 / MEN</span><strong>Off-duty<br>uniform.</strong><i>↗</i></button>
+        <button class="category-card category-women" data-category="Women"><span>02 / WOMEN</span><strong>Soft looks,<br>bold energy.</strong><i>↗</i></button>
+        <button class="category-card category-footwear" data-category="Footwear"><span>03 / FOOTWEAR</span><strong>Walk your<br>own way.</strong><i>↗</i></button>
+        <button class="category-card category-accessories" data-category="Accessories"><span>04 / EXTRAS</span><strong>The final<br>touch.</strong><i>↗</i></button>
+      </div>
+    </section>
+
+    <section class="products-section section-wrap" id="products">
+      <div class="section-heading products-heading">
+        <div><p class="eyebrow">THE GOOD FINDS</p><h2>Trending right now<span>.</span></h2><p class="muted" id="resultsText">A few things we think you'll love.</p></div>
+        <div class="sort-area"><label for="sortSelect">Sort by</label><select id="sortSelect"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="rating">Top rated</option></select></div>
+      </div>
+      <div class="filter-row">
+        <div class="filter-chips" id="filterChips">
+          <button class="filter-chip active" data-filter="All">All pieces <span>✳</span></button>
+          <button class="filter-chip" data-filter="Men">Men</button>
+          <button class="filter-chip" data-filter="Women">Women</button>
+          <button class="filter-chip" data-filter="Footwear">Footwear</button>
+          <button class="filter-chip" data-filter="Accessories">Accessories</button>
+        </div>
+        <button class="filter-toggle" id="saleToggle">✦ On sale</button>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <div class="empty-state hidden" id="emptyState"><span>⌕</span><h3>No fits found</h3><p>Try another search or clear the filters.</p><button class="primary-btn" id="clearFilters">Clear filters ↗</button></div>
+      <button class="load-more" id="loadMore">You've seen the good stuff <span>✳</span></button>
+    </section>
+
+    <section class="newsletter">
+      <div><p class="eyebrow">A LITTLE NOTE FROM US</p><h2>Your inbox,<br><em>but better.</em></h2><p>New drops, style notes and first dibs on the good stuff.</p></div>
+      <form id="newsletterForm"><label for="emailInput">Your email address</label><div class="email-row"><input id="emailInput" type="email" placeholder="you@example.com" required><button type="submit">I'm in ↗</button></div><small id="newsletterMessage">No spam. Just good taste. Unsubscribe whenever.</small></form>
+      <div class="newsletter-spark">✳</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#"><span class="brand-mark">S</span><span>stylekart</span></a>
+    <p>Good style. No big deal.</p>
+    <div><a href="#products">Shop</a><a href="#">About</a><a href="#">Help</a><a href="#">Instagram ↗</a></div>
+    <small>© 2026 StyleKart Studio. A demo storefront built for learning.</small>
+  </footer>
+
+  <div class="toast" id="toast" role="status"></div>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping bag">
+    <div class="drawer-head"><div><p class="eyebrow">YOUR PICKS</p><h2>Your bag <span id="drawerItemCount">(0)</span></h2></div><button id="closeDrawer" aria-label="Close bag">×</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer"><div class="subtotal"><span>Subtotal</span><strong id="subtotal">₹0</strong></div><p>Shipping and discounts calculated at checkout.</p><button id="checkoutBtn" class="primary-btn">Continue to checkout ↗</button></div>
+  </aside>
+  <!-- <script src="script.js"></script> -->
+</body>
+</html>
